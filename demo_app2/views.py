@@ -85,6 +85,22 @@ def pdf_get(request):
     #return HttpResponse(str)
    
 
+import fitz
+def bound_box(request):
+    filepath="sim_pdf.pdf"
+    p=fitz.open(filepath)
+    NumPages=p.pageCount
+    patterns="you can"
+    for i in range(0,NumPages):
+        PageObj=p.load_page(i)
+        r1=PageObj.search_for(patterns)
+        for area in r1:
+            if isinstance(area,fitz.fitz.Rect):
+                annot=PageObj.addRectAnnot(area)
+                annot.setColors(stroke=fitz.utils.getColor('red'))
+        p.save("test_demo\static\super.pdf")
+    return render(request,"bound.html")
+
 
 
 def upload(request):
@@ -98,7 +114,20 @@ def upload(request):
         context['url']=fs.url(name)
         #print(upload_file.name)
         #print("filesize=",upload_file.size)
-    return render(request,'upload.html')
+    return render(request,"upload.html",context)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 '''
 

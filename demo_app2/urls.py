@@ -22,6 +22,7 @@ from django.conf import settings
 urlpatterns = [
     
     path("",views.home),
+    path("bound_box",views.bound_box,name='bound_box'),
     path("bounding",views.bounding,name='bounding'),
     path("contact",views.contact,name='contact'),
     path("login",views.loginUser,name="login"),
@@ -31,6 +32,7 @@ urlpatterns = [
     path ("index",views.index,name='index'),
     path("about",views.about,name='about'),
     path("service",views.service,name='service'),
+    
 ]
 
 if settings.DEBUG:

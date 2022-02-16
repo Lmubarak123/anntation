@@ -46,7 +46,7 @@
       <input type="file" id="myfile" name="myfile">
       <input type="submit" class="btn btn-success">
     </form>-->
-    <h4> <a href="/index">click to open exiting files</a></h4>
+    <h4> <a href="/bound_box">Click Here To set Bounding_boxes</a></h4>
 </div>
 
 
@@ -56,8 +56,10 @@
       <h2>PDF FILE </h2>
       <h5>Annotation</h5>
      <!-- <div class="fakeimg"><a href="{{File}}">example</a></div><br></br> -->
-
-     <div class="fakeimg"> <iframe src="http://infolab.stanford.edu/pub/papers/google.pdf#toolbar=0&navpanes=0&scrollbar=0" style="width: 100%;height: 100%;border: none;"></iframe></div>
+     {% load static %}
+     <div class="fakeimg"> <iframe src="{% static 'sim_pdf.pdf' %}"  type="application/pdf" style="width: 100%;height: 200%;border: none;"></iframe>  </div><br></br>
+     
+     {% comment %} <div class="fakeimg"> <iframe src="http://infolab.stanford.edu/pub/papers/google.pdf#toolbar=0&navpanes=0&scrollbar=0" style="width: 100%;height: 100%;border: none;"></iframe></div> {% endcomment %}
 
      <!-- <div class="fakeimg"> {% for li in str1 %}
         {{li}}
